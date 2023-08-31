@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>User List</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <h1>User List:</h1>
+    {% if user_list %}
+        <ol>
+            {% for user in user_list %}
+                <li>
+                    <b>User {{user.id}}</b>
+                    <ul>
+                        <li>Name: {{user.first_name}} {{user.last_name}}</li>
+                        <li>Email: {{user.email}}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</body>
+</html>
